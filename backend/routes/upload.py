@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, UploadFile, HTTPException
+from fastapi import APIRouter, File, Form, UploadFile, HTTPException
 from pathlib import Path
 from datetime import datetime, UTC
 
@@ -18,7 +18,10 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 
 @router.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(
+    file: UploadFile = File(...),
+    user_id: str = Form("default")
+):
 
     if not file.filename:
         raise HTTPException(
@@ -53,6 +56,7 @@ async def upload_file(file: UploadFile = File(...)):
     )
 
     doc = Document(
+        user_id=user_id,
         filename=filename,
         vector_count=len(chunks),
         created_at=datetime.now(UTC)
@@ -61,7 +65,7 @@ async def upload_file(file: UploadFile = File(...)):
     document_id = await create_document(doc)
 
     chat = Chat(
-        user_id="default",
+        user_id=user_id,
         document_id=document_id,
         title=filename,
         created_at=datetime.now(UTC)

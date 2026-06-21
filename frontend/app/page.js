@@ -1,65 +1,231 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import toast from "react-hot-toast";
+
+import AuthGuard from "@/components/AuthGuard";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
+import ChatWindow from "@/components/ChatWindow";
+import ChatInput from "@/components/ChatInput";
+import { getChats, getMessages, queryDocument, syncUser, uploadPdf } from "@/lib/api";
+
+function formatMessages(rawMessages) {
+  return (rawMessages || [])
+    .map((message, index) => ({
+      id: message._id || `${message.chat_id || "msg"}-${index}`,
+      role: message.role,
+      content: message.content || "",
+      createdAt: message.created_at,
+    }))
+    .sort((left, right) => new Date(left.createdAt || 0) - new Date(right.createdAt || 0));
+}
+
+function CollegeGPTApp() {
+  const { user, isLoaded } = useUser();
+  const [currentUser, setCurrentUser] = useState(null);
+  const [chats, setChats] = useState([]);
+  const [currentChatId, setCurrentChatId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isHydrating, setIsHydrating] = useState(true);
+
+  const chatListLoaded = useRef(false);
+
+  useEffect(() => {
+    async function hydrateUser() {
+      if (!isLoaded) {
+        return;
+      }
+
+      if (!user) {
+        setCurrentUser(null);
+        setChats([]);
+        setCurrentChatId(null);
+        setMessages([]);
+        setIsHydrating(false);
+        return;
+      }
+
+      const payload = {
+        clerk_id: user.id,
+        email: user.primaryEmailAddress?.emailAddress || user.emailAddresses?.[0]?.emailAddress || "",
+        name: user.fullName || user.firstName || user.username || "CollegeGPT User",
+        provider: "clerk",
+      };
+
+      try {
+        const response = await syncUser(payload);
+        setCurrentUser(response.user || payload);
+      } catch (error) {
+        setCurrentUser(payload);
+        toast.error(error.message || "Unable to sync your account right now.");
+      }
+
+      setIsHydrating(false);
+    }
+
+    hydrateUser();
+  }, [isLoaded, user]);
+
+  useEffect(() => {
+    async function loadChats() {
+      if (!currentUser?.clerk_id || chatListLoaded.current) {
+        return;
+      }
+
+      try {
+        const response = await getChats(currentUser.clerk_id);
+        setChats(Array.isArray(response) ? response : []);
+        chatListLoaded.current = true;
+      } catch (error) {
+        toast.error(error.message || "Failed to load chats.");
+      }
+    }
+
+    loadChats();
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (!currentChatId) {
+      return;
+    }
+
+    async function loadMessages() {
+      try {
+        const response = await getMessages(currentChatId);
+        setMessages(formatMessages(response));
+      } catch (error) {
+        toast.error(error.message || "Failed to load chat history.");
+      }
+    }
+
+    loadMessages();
+  }, [currentChatId]);
+
+  const currentChat = useMemo(
+    () => chats.find((chat) => chat._id === currentChatId) || null,
+    [chats, currentChatId]
+  );
+
+  async function handleUpload(event) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+
+    if (!file) {
+      return;
+    }
+
+    if (!currentUser?.clerk_id) {
+      toast.error("Sign in required to upload a PDF.");
+      return;
+    }
+
+    try {
+      const response = await uploadPdf(file, currentUser.clerk_id);
+      toast.success("PDF uploaded successfully. You can start asking questions.");
+      setCurrentChatId(response.chat_id);
+      chatListLoaded.current = false;
+      const updatedChats = await getChats(currentUser.clerk_id);
+      setChats(Array.isArray(updatedChats) ? updatedChats : []);
+    } catch (error) {
+      toast.error(error.message || "Upload failed.");
+    }
+  }
+
+  async function handleSend(event) {
+    event.preventDefault();
+
+    if (!inputValue.trim()) {
+      return;
+    }
+
+    if (!currentChatId) {
+      toast.error("Upload a PDF or open a chat first.");
+      return;
+    }
+
+    const question = inputValue.trim();
+    setInputValue("");
+    setMessages((previous) => [
+      ...previous,
+      {
+        id: `user-${Date.now()}`,
+        role: "user",
+        content: question,
+      },
+    ]);
+    setIsLoading(true);
+
+    try {
+      const response = await queryDocument({
+        chat_id: currentChatId,
+        question,
+      });
+
+      setMessages((previous) => [
+        ...previous,
+        {
+          id: `assistant-${Date.now()}`,
+          role: "assistant",
+          content: response.answer,
+        },
+      ]);
+    } catch (error) {
+      toast.error(error.message || "Query failed.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function handleSelectChat(chat) {
+    setCurrentChatId(chat._id);
+  }
+
+  function handleNewChat() {
+    setCurrentChatId(null);
+    setMessages([]);
+  }
+
+  const emptyState = currentChat
+    ? `Continue chat: ${currentChat.title || currentChat.filename || "Document"}`
+    : "Upload a PDF to start chatting.";
+
+  const canInteract = Boolean(currentUser?.clerk_id) && !isHydrating;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen flex-col bg-transparent">
+      <Navbar />
+      <AuthGuard>
+        <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+          <Sidebar
+            chats={chats}
+            currentChatId={currentChatId}
+            disabled={!canInteract}
+            onNewChat={handleNewChat}
+            onUpload={handleUpload}
+            onSelectChat={handleSelectChat}
+          />
+          <main className="flex min-h-0 flex-1 flex-col">
+            <ChatWindow messages={messages} isLoading={isLoading} emptyState={emptyState} />
+            <div className="border-t border-white/10 bg-slate-950/80 px-4 py-4 backdrop-blur-xl sm:px-6">
+              <ChatInput
+                disabled={!canInteract || !currentChatId || isLoading}
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+                onSubmit={handleSend}
+                placeholder={canInteract ? "Ask a question about your uploaded PDF..." : "Sign in to start chatting with your documents."}
+              />
+            </div>
+          </main>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </AuthGuard>
     </div>
   );
+}
+
+export default function Home() {
+  return <CollegeGPTApp />;
 }

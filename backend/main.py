@@ -8,6 +8,7 @@ from routes.documents import routerd
 from routes.chat import routerc
 from routes.query import routerq
 from routes.message import routerm
+from routes.user import routeru
 
 app.include_router(router)
 
@@ -15,6 +16,7 @@ app.include_router(routerd)
 app.include_router(routerc)
 app.include_router(routerq)
 app.include_router(routerm)
+app.include_router(routeru)
 
 app.add_middleware(
     CORSMiddleware,
