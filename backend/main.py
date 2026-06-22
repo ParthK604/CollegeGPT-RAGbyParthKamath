@@ -1,8 +1,5 @@
 from fastapi import FastAPI 
 from fastapi.middleware.cors import CORSMiddleware
-
-
-app=FastAPI()
 from routes.upload import router
 from routes.documents import routerd
 from routes.chat import routerc
@@ -10,6 +7,7 @@ from routes.query import routerq
 from routes.message import routerm
 from routes.user import routeru
 
+app=FastAPI()
 app.include_router(router)
 
 app.include_router(routerd)
