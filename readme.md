@@ -82,7 +82,7 @@ Next.js API routes run Node.js — no access to sentence-transformers or LangCha
 |---|---|
 | Frontend | Next.js, React |
 | Backend | FastAPI (Python) |
-| LLM | Groq (llama3-8b-8192) |
+| LLM | Groq (qwen/qwen3.6-27b) |
 | Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
 | Vector Store | Pinecone |
 | PDF Processing | PyMuPDF + LangChain |
