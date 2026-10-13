@@ -8,6 +8,10 @@ from routes.message import routerm
 from routes.user import routeru
 
 app=FastAPI()
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1aea0b (fixed main)
 app.include_router(router)
 
 app.include_router(routerd)

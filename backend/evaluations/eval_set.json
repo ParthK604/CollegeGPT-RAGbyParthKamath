@@ -1,0 +1,282 @@
+﻿[
+    {
+        "question":  "What is modulation in telecommunication?",
+        "ground_truth":  "The process of varying a parameter (amplitude, frequency, or phase) of a highâ€‘frequency carrier signal in accordance with the instantaneous value of the lowâ€‘frequency information signal.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.1  \nModule 5 \nDigital Communication Techniques \n \n \nSyllabus \n â€¢ Basic Modulation techniques (AM, FM, PM) \n â€¢ Multiplexing: FDM, TDM \n â€¢ Error detection and correction techniques \n \n \n5.1  Modulation             \nIn telecommunication, the information or â€˜messageâ€™ signal (such as voice or \nmusic) usually has a low frequency, called the baseband signal . However, this \nlow-frequency signal is unsuitable for direct long-distance transmission using a \npractical antenna. To overcome this, we use a process called Modulation. \nModulation is defined as the process of varying a parameter (amplitude, \nfrequency, or phase)  of a high -frequency carrier signal in accordance with the \ninstantaneous value of the low-frequency information signal. \nIn simple words, modulation is the technique of â€˜superimposing information on \na high-frequency carrier waveâ€™ so that it can be transmitted over long distances. \n5.1.1 Key Signal Definitions",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  0
+    },
+    {
+        "question":  "What is a Modulating Signal?",
+        "ground_truth":  "The baseband signal that contains the actual information to be transmitted (e.g., audio from a microphone). It has low frequency and low energy.",
+        "context":  "a high-frequency carrier waveâ€™ so that it can be transmitted over long distances. \n5.1.1 Key Signal Definitions \nâ€¢ Modulating Signal (Message Signal):  This is the baseband signal that \ncontains the actual information to be transmitted (e.g., audio from a \nmicrophone). It has low frequency and low energy. \nâ€¢ Carrier Signal: This is a high-frequency sinusoidal wave produced by an \noscillator. It acts as a \"carrier\" that transports the message through the \nmedium. It contains no information of its own. \nâ€¢ Modulated Signal:  The resulting wave after the modulation process, \nwhich contains the characteristics of both the message and the carrier. \n5.1.2 Necessity of Modulation \nModulation is essential in modern communication systems for several technical \nreasons:",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  0
+    },
+    {
+        "question":  "What is the approximate antenna length required for a 1 MHz signal?",
+        "ground_truth":  "75 meters",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.2  \nâ€¢ Reduction in Antenna Height:  For efficient transmission, an antennaâ€™s \nheight must be roughly Î»/4 (one-quarter of the signal wavelength). Low-\nfrequency signals , such as audio signals (20 Hz â€“ 20 kHz),  have huge \nwavelengths (Î» = c/f) and would require antennas kilometers high. \nModulation increases the frequency, significantly reducing the antenna \nsize to a practical few meters. For example, a 20 kHz audio signal has a \nwavelength of 15 km, requiring an antenna of approximately 3.75 km, \nwhich is impossible to c onstruct. By using modulation to shift the signal \nto a higher frequency (say 1 MHz), the required antenna length reduces to \na practical 75 meters. \nâ€¢ Multiplexing: Multiple message signals can be transmitted \nsimultaneously over the same communication channel by modulating \nthem onto different carrier frequencies. This process, known as frequency",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  1
+    },
+    {
+        "question":  "What is frequency division multiplexing (FDM)?",
+        "ground_truth":  "A process that modulates signals onto different carrier frequencies to allow simultaneous transmission over the same communication channel.",
+        "context":  "simultaneously over the same communication channel by modulating \nthem onto different carrier frequencies. This process, known as frequency \ndivision multiplexing (FDM), enables efficient utilization of the availa ble \nbandwidth. For instance, multiple radio stations can broadcast \nsimultaneously without interfering with each other because each station \nuses a different carrier frequency. \nâ€¢ Long-Distance Transmission : High-frequency modulated signals can \ntravel longer distances through the atmosphere and can be reflected by \nthe ionosphere, enabling long -distance communication. Low -frequency \nbaseband signals cannot achieve such propagation characteristics. \nâ€¢ Noise Immunity: Low-frequency signals are more susceptible to noise and \ninterference from various sources. High -frequency carrier signals can \npropagate through the medium with less noise pickup. Additionally, \ncertain modulation techniques like FM provide better noise immu nity",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  1
+    },
+    {
+        "question":  "Which modulation technique varies the carrier amplitude?",
+        "ground_truth":  "Amplitude Modulation (AM)",
+        "context":  "propagate through the medium with less noise pickup. Additionally, \ncertain modulation techniques like FM provide better noise immu nity \ncompared to direct transmission of baseband signals. \n5.1.3 Classification of Analog Modulation \nBased on which parameter of the sinusoidal carrier is varied, modulation is \nclassified into: \nâ€¢ Amplitude Modulation (AM) â€“ Carrier amplitude is varied \nâ€¢ Frequency Modulation (FM) â€“ Carrier frequency is varied \nâ€¢ Phase Modulation (PM) â€“ Carrier phase is varied \n \n5.2  Amplitude Modulation (AM)        \nAmplitude Modulation (AM) is a modulation technique in which the amplitude of \nthe high-frequency carrier signal is varied in accordance with the instantaneous",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  1
+    },
+    {
+        "question":  "What is the modulation index Î¼ defined as in the mathematical representation of AM?",
+        "ground_truth":  "Î¼ = Am / Ac",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.3  \nvalue of the low-frequency modulating signal, while the frequency and phase of \nthe carrier remain constant. In AM, the information is conveyed through \nvariations in the amplitude of the carrier wave. \n \n5.2.1 Mathematical Representation of AM \nLet: \nâ€¢ Carrier signal: ð‘(ð‘¡) = ð´ð‘cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \nâ€¢ Message signal: ð‘š(ð‘¡) = ð´ð‘šcosâ¡(2ðœ‹ð‘“ð‘šð‘¡) \nThe AM signal is given by: \nð‘ (ð‘¡) = [ð´ð‘ + ð‘š(ð‘¡)]â¡cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \n \nð‘ (ð‘¡) = [ð´ð‘ + (ð´ð‘š cos(2ðœ‹ð‘“ð‘šð‘¡)]â¡cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \n \nð‘ (ð‘¡) = ð´ð‘[1 + (ð´ð‘š/ð´ð‘) cos(2ðœ‹ð‘“ð‘šð‘¡)]â¡cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \n \nð‘ (ð‘¡) = ð´ð‘[1 + ðœ‡â¡ cos(2ðœ‹ð‘“ð‘šð‘¡)]â¡cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \nwhere \nðœ‡ = ð´ð‘š\nð´ð‘\n \nis the modulation index.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  2
+    },
+    {
+        "question":  "What category does a modulation index less than 1 correspond to in AM systems?",
+        "ground_truth":  "Under-Modulation",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.4  \n5.2.2 Modulation Index (Depth of Modulation) \nThe modulation index (also called depth of modulation or modulation factor) \ndetermines the extent to which the carrier amplitude is varied by the modulating \nsignal. It is defined as the ratio of the  peak amplitude of the modulating signal \n(Am) to the peak amplitude of the carrier signal (Ac). \nModulationâ¡indexâ¡(ðœ‡) = ð´ð‘š\nð´ð‘\n \nThe modulation index is often expressed as a percentage, called the percentage \nmodulation: \nPercentageâ¡Modulation = ð´ð‘š\nð´ð‘\nâ¡ð‘¥â¡100% \n5.2.3 Significance of Modulation Index \nThe modulation index is highly significant in AM systems because it directly \naffects the quality and efficiency of transmission . Based on the value of the \nmodulation index, amplitude modulation can be classified into three categories: \nUnder-Modulation ( Î¼ \u003c 1):  When the modulation index is less than 1, the",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  3
+    },
+    {
+        "question":  "What is the condition called when the modulation index is less than 1?",
+        "ground_truth":  "Under-modulation",
+        "context":  "Under-Modulation ( Î¼ \u003c 1):  When the modulation index is less than 1, the \ncondition is called under -modulation. In this case, the modulating signal \namplitude is less than the carrier amplitude (Am \u003c Ac). The AM envelope does not \nreach zero, and the minimum amplitude A min is positive. Under -modulation \nresults in inefficient use of transmitter power because a significant portion of \npower remains in the carrier, which carries no information. However, the signal \nis free from distortion. \nCritical Modulation (Î¼ = 1 or 100% Modulation): When the modulation index \nequals 1, it is called critical modulation or 100% modulation. In this case, the \namplitude of the modulating signal equals the carrier amplitude (A m = Ac). The \nAM envelope just touches zero at the minimum point (A min = 0), and reaches \ntwice the carrier amplitude at the maximum (A max = 2A c). This represents the \nideal condition for AM transmission, as it provides maximum power efficiency",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  3
+    },
+    {
+        "question":  "What occurs when the modulation index Î¼ exceeds 1 in AM transmission?",
+        "ground_truth":  "The envelope of the AM wave becomes distorted, the minimum amplitude tries to go negative, causing severe distortion and generating additional frequency components (harmonic distortion).",
+        "context":  "ideal condition for AM transmission, as it provides maximum power efficiency \nwithout causing distortion. In practice, systems are designed to operate just \nbelow 100% modulation to avoid any risk of over-modulation. \nOver-Modulation (Î¼ \u003e 1): When the modulation index exceeds 1, the condition \nis called over -modulation. Here, the modulating signal amplitude exceeds the \ncarrier amplitude (Am \u003e Ac). This causes the envelope of the AM wave to become \ndistorted, as the minimum amplitude tries to go negative, which is physically \nimpossible. Over -modulation results in severe distortion of the signal and \ngenerates additional frequency components (harmonic distortion) that can cause",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  3
+    },
+    {
+        "question":  "What is the range of the modulation index for distortion-free AM transmission?",
+        "ground_truth":  "0 â‰¤ Î¼ â‰¤ 1",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.5  \ninterference with adjacent channels. Over -modulation must be strictly avoided \nin AM transmission systems.  \nNote that, the range of modulation index for distortion-free transmission is 0 â‰¤ \nÎ¼ â‰¤ 1.  When Î¼ = 0, only the carrier signal is transmitted. \n \n5.2.4 AM Envelope \nâ€¢ The imaginary line connecting the peaks of the AM wave  is called the AM \nenvelope.  \nâ€¢ In successful modulation, this envelope is an exact replica of the original \nmessage signal m(t).  \nâ€¢ Proper envelope detection is possible only when the signal is not over -\nmodulated (Î¼ â‰¤ 1).",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  4
+    },
+    {
+        "question":  "Which component in a typical AM transmitter is responsible for varying the carrier amplitude according to the modulating signal?",
+        "ground_truth":  "Modulator",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.6  \n5.2.5 Block Diagram of AM Transmitter \nA typical AM transmitter consists of the following main blocks: \nâ€¢ Audio Amplifier: Amplifies the weak audio signal from the microphone to \na level suitable for modulation. \nâ€¢ Carrier Oscillator: Generates a stable high -frequency carrier signal at \nthe desired transmission frequency. \nâ€¢ Modulator: The core component where the carrier amplitude is varied \naccording to the modulating signal. This is typically implemented using a \nnonlinear device or circuit. \nâ€¢ Power Amplifier: Amplifies the modulated signal to the required power \nlevel for transmission. \nâ€¢ Antenna: Radiates the amplified AM signal into space for transmission to \ndistant receivers. \nThe modulating signal and carrier signal are fed into the modulator circuit, \nwhich produces the amplitude -modulated output. The modulator is the key \ncomponent that performs the multiplication of the two signals, either directly or",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  5
+    },
+    {
+        "question":  "What are the two advantages of amplitude modulation highlighted in the passage?",
+        "ground_truth":  "Simple transmitter and receiver design, and low cost of implementation.",
+        "context":  "component that performs the multiplication of the two signals, either directly or \nthrough nonlinear processing. \n \n5.2.6 Advantages of Amplitude Modulation \nâ€¢ Simple Transmitter and Receiver Design:  AM transmitters and \nreceivers have relatively simple circuit designs compared to other \nmodulation schemes. AM uses basic circuits such as envelope detectors, \nmaking the system easy to design, understand, and maintain. \nâ€¢ Low Cost of Implementation:  The simple hardware requirements make \nAM systems economical and widely affordable.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  5
+    },
+    {
+        "question":  "What is one disadvantage of amplitude modulation mentioned in the passage?",
+        "ground_truth":  "Highly susceptible to noise.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.7  \nâ€¢ Wide Coverage Area: AM signals can travel long distances using ground-\nwave and sky-wave propagation, especially in MF and HF bands. \nâ€¢ Small Bandwidth: Requires less bandwidth (2fm) compared to FM.  \n5.2.7 Disadvantages of Amplitude Modulation \nâ€¢ Highly Susceptible to Noise:  Noise (atmospheric, electrical) directly \naffects signal amplitude. Since information is encoded in amplitude, AM is \nhighly susceptible to interference and static. \nâ€¢ Poor Power Efficiency: A large portion of transmitted power is wasted in \nthe carrier and redundant sidebands, reducing overall efficiency. \nâ€¢ Redundancy: Both sidebands carry the same information, wasting \nspectrum. \nâ€¢ Limited Fidelity:  Narrow bandwidth and noise susceptibility result in \nlower audio quality compared to FM/PM. \n5.2.8 Applications of Amplitude Modulation \nâ€¢ AM Radio Broadcasting:  Used in medium -wave and short -wave",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  6
+    },
+    {
+        "question":  "Which application of AM is preferred for aircraft communication?",
+        "ground_truth":  "Aviation Communication",
+        "context":  "lower audio quality compared to FM/PM. \n5.2.8 Applications of Amplitude Modulation \nâ€¢ AM Radio Broadcasting:  Used in medium -wave and short -wave \nbroadcasting for news, talk shows, and public announcements. \nâ€¢ Aviation Communication:  AM is preferred for aircraft communication \nbecause overlapping signals can still be detected without complete signal \nloss. \nâ€¢ Analog Television (Historical): The video signal in traditional analog TV \nused a form of AM called Vestigial Sideband Modulation (VSB). \nâ€¢ Simple Wireless Communication Systems: Suitable where low cost and \nsimplicity are more important than high audio quality. \n \n5.3  Frequency Modulation (FM)        \nFrequency Modulation (FM) is a modulation technique in which the frequency of \nthe carrier signal is varied in proportion to the instantaneous value of the \nmodulating signal, while the amplitude of the carrier remains constant. In FM, \ninformation is conveyed through changes in the instantaneous frequency of the",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  6
+    },
+    {
+        "question":  "How is information conveyed in frequency modulation?",
+        "ground_truth":  "Through changes in the instantaneous frequency of the carrier wave.",
+        "context":  "information is conveyed through changes in the instantaneous frequency of the \ncarrier wave, rather than through amplitude variations. \nThe basic principle of frequency modulation is that when a modulating signal is \napplied, the carrier frequency increases when the modulating signal amplitude \nis positive and decreases when it is negative. The amount of frequency change is",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  6
+    },
+    {
+        "question":  "What is frequency deviation (Î”f) defined as?",
+        "ground_truth":  "The maximum change in the instantaneous frequency of the carrier from its unmodulated value.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.8  \nproportional to the amplitude of the modulating signal, while the rate of \nfrequency change corresponds to the frequency of the modulating signal. \n5.3.1 FM Waveforms \nWhen the message signal voltage increases, the carrier frequency increases \n(waves become closer). When the message voltage decreases, the carrier \nfrequency decreases (waves spread apart). \n  \n \n5.3.2 Frequency Deviation (Î”f)  \nFrequency deviation (Î”f) is defined as the maximum change in the instantaneous \nfrequency of the carrier from its unmodulated value. It represents the extent to \nwhich the carrier frequency varies from its center frequency during modulation. \nFrequency deviation is directly proportional to the amplitude of the modulating \nsignal. \nMathematically, frequency deviation is expressed as: \nÎ”f = kf Ã— Am \nwhere kf is the frequency sensitivity constant of the modulator (in Hz/volt) and",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  7
+    },
+    {
+        "question":  "Between which two values does the instantaneous frequency of the FM wave vary?",
+        "ground_truth":  "(fc - Î”f) and (fc + Î”f)",
+        "context":  "Mathematically, frequency deviation is expressed as: \nÎ”f = kf Ã— Am \nwhere kf is the frequency sensitivity constant of the modulator (in Hz/volt) and \nAm is the amplitude of the modulating signal. The instantaneous frequency of \nthe FM wave varies between (fc - Î”f) and (fc + Î”f).",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  7
+    },
+    {
+        "question":  "What is the maximum frequency deviation standardized for commercial FM broadcasting?",
+        "ground_truth":  "Â±75 kHz from the carrier frequency",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.9  \nUnit of Frequency Deviation: The unit of frequency deviation is Hertz (Hz). In \ncommercial FM broadcasting, the maximum frequency deviation is standardized \nat Â±75 kHz from the carrier frequency. In narrowband FM systems used for voice \ncommunication, the deviation is typically limited to Â±5 kHz. \n5.3.3 Modulation Index in FM \nThe modulation index of FM ( Î²) is defined as the ratio of frequency deviation to \nthe modulating frequency. \nÎ²=Î”f/fm \nwhere, \nÎ”f= maximum frequency deviation \nfm= modulating frequency \n5.3.4 Significance of Modulation Index Î² \nThe modulation index determines the bandwidth occupied by the FM signal and \nthe distribution of power among the carrier and sidebands. Unlike AM, the \nmodulation index in FM can be greater than 1, and in wideband FM, it is typically \nmuch greater than 1. Larger Î² leads to better noise performance. \nFM systems are classified based on the modulation index:",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  8
+    },
+    {
+        "question":  "What is the typical modulation index used in commercial FM radio broadcasting?",
+        "ground_truth":  "around 5",
+        "context":  "much greater than 1. Larger Î² leads to better noise performance. \nFM systems are classified based on the modulation index: \nâ€¢ Narrowband FM (NBFM):  When Î²â‰ª1, the system is called narrowband \nFM. NBFM has a bandwidth approximately equal to 2f m, similar to AM, \nand is used in applications like two-way mobile communication. \nâ€¢ Wideband FM (WBFM): When Î²â‰«1, the system is called wideband FM. \nWBFM occupies much greater bandwidth but provides superior noise \nimmunity and signal quality. Commercial FM radio broadcasting uses \nwideband FM with Î² typically around 5. \n5.3.5 Block Diagram of FM Transmitter \nA typical FM transmitter consists of the following main blocks: \nâ€¢ Pre-Amplifier: The electrical signal generated by input transducer, such \nas a microphone, is extremely weak (usually in the millivolt range) . The \npre-amplifier boosts this weak voltage to a level sufficient to drive the next \nstage, which is the modulator . By amplifying the signal early, it ensures",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  8
+    },
+    {
+        "question":  "How does amplifying the signal early in the modulator stage affect the message signal relative to internal circuit noise?",
+        "ground_truth":  "It ensures that the message signal remains significantly stronger than any internal circuit noise introduced in later stages, thereby improving signal-to-noise ratio.",
+        "context":  "stage, which is the modulator . By amplifying the signal early, it ensures \nthat the message signal remains significantly stronger than any internal \ncircuit noise introduced in later stages  thereby improving signal-to-noise \nratio.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  8
+    },
+    {
+        "question":  "What is the purpose of the RF Power Amplifier in an FM transmitter?",
+        "ground_truth":  "To increase the carrier waveâ€™s power (measured in Watts) so it can overcome path loss and attenuation for longâ€‘distance transmission.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.10  \n \nFig. Block Diagram of FM Transmitter \n \nâ€¢ RF Oscillator:  Generates a stable high -frequency carrier signal at the \ndesired transmission frequency. \nâ€¢ FM Modulator:  The actual \"Frequency Modulation\" process occurs by \ncombining the message signal and the carrier wave.  It superimposes the \nlow-frequency electrical message signal (from the pre -amplifier) onto the \nhigh-frequency carrier wave. It generates the frequency-modulated signal \nusing either direct or indirect method. \nâ€¢ RF Power Amplifier:  While the pre -amplifier deals with voltage, the RF \namplifier focuses on Power. To transmit a signal over long distances \nthrough free space, the carrier wave must have high power (measured in \nWatts) to overcome path loss and attenuation. \nâ€¢ Antenna: The Antenna is the final stage of the transmitter and acts as the \ninterface between the electronic circuits and the physical environment.  It",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  9
+    },
+    {
+        "question":  "Why does FM have high noise immunity?",
+        "ground_truth":  "Because noise primarily affects amplitude, but FM carries information in frequency variations, so amplitude noise has minimal effect.",
+        "context":  "interface between the electronic circuits and the physical environment.  It \nacts as an output transducer, converting the high -frequency electrical \ncurrent (power) into electromagnetic (EM) waves. Its primary function is to \nradiate these EM waves into free space (the communication channel) so \nthey can propagate toward the receiver. \n5.3.6 Advantages of Frequency Modulation \nâ€¢ High Noise Immunity:  FM is highly resistant to noise and interference \nbecause noise primarily affects the amplitude of signals, while FM carries \ninformation in frequency variations. Hence, amplitude noise has minimal \neffect.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  9
+    },
+    {
+        "question":  "What is a disadvantage of FM mentioned in the passage?",
+        "ground_truth":  "Large Bandwidth Requirement: FM signals, particularly wideband FM, require much greater bandwidth than AM.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.11  \nâ€¢ Better Audio Quality:  Wide bandwidth enables high -fidelity sound \nreproduction, ideal for music. \nâ€¢ Constant Amplitude Signal: Allows the use of efficient power amplifiers, \nimproving transmitter efficiency. \nâ€¢ Improved Signal -to-Noise Ratio:  The use of pre -emphasis and de -\nemphasis techniques in FM systems significantly improves the signal -to-\nnoise ratio, particularly for high-frequency audio components. \nâ€¢ Efficient Use of Transmitter Power:  All transmitted power in FM is \nuseful, as the carrier amplitude remains constant and all power variations \nconvey information, unlike AM where most power is in the non -\ninformation-bearing carrier. \n \n5.3.7 Disadvantages of Frequency Modulation \nâ€¢ Large Bandwidth Requirement: FM signals, particularly wideband FM, \nrequire much greater bandwidth than AM. For example, commercial FM \nbroadcasting uses approximately 200 kHz per channel compared to 10",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  10
+    },
+    {
+        "question":  "What is the typical coverage area of FM stations?",
+        "ground_truth":  "50-100 km from the transmitter.",
+        "context":  "require much greater bandwidth than AM. For example, commercial FM \nbroadcasting uses approximately 200 kHz per channel compared to 10 \nkHz for AM, making FM less spectrum -efficient. Hence, limiting the \nnumber of available channels. \nâ€¢ Complex Transmitter and Receiver Circuits:  FM modulators, \ndiscriminators, and AFC increase system complexity and cost. \nâ€¢ Limited Coverage (Line -of-Sight): FM signals, which are typically \ntransmitted in the VHF and UHF bands, follow line -of-sight propagation \nand do not benefit from ionospheric reflection like AM. This limits the \ncoverage area of FM stations to typically 50-100 km from the transmitter. \nâ€¢ Requires More Infrastructure:  Due to limited range, FM broadcasting \nrequires more transmitter stations and repeaters to cover the same \ngeographic area as AM, increasing infrastructure costs. \n \n5.3.8 Applications of Frequency Modulation \nâ€¢ FM Radio Broadcasting (88â€“108 MHz) \nâ€¢ Used for high-quality music and entertainment programs.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  10
+    },
+    {
+        "question":  "What is the frequency range used for FM radio broadcasting?",
+        "ground_truth":  "88â€“108 MHz",
+        "context":  "5.3.8 Applications of Frequency Modulation \nâ€¢ FM Radio Broadcasting (88â€“108 MHz) \nâ€¢ Used for high-quality music and entertainment programs. \nâ€¢ Television Audio Transmission \nâ€¢ FM is employed due to its superior noise performance.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  10
+    },
+    {
+        "question":  "What is the modulation index for AM?",
+        "ground_truth":  "Î¼ = Am / Ac; 0 â‰¤ Î¼ â‰¤ 1",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.12  \nâ€¢ Two-Way Radio Communication \nâ€¢ Used in walkie-talkies, police, emergency, and amateur radio systems. \n \n5.3.9 Comparison: AM vs. FM  \nParameter Amplitude Modulation \n(AM) \nFrequency Modulation \n(FM) \nVaried Parameter Amplitude Frequency \nCarrier Amplitude Varies with modulation Constant \nModulation Index ðœ‡ =\nð´ð‘š\nð´ð‘\n ; 0 â‰¤ ðœ‡ â‰¤ 1 ð›½ =\nÎ”ð‘“\nð‘“ð‘š\n ; ð›½ â‰« 1 possible \nBandwidth ðµð‘Š = 2ð‘“ð‘š (narrow, ~10 \nkHz) \nðµð‘Š â‰ˆ 2(Î”ð‘“ + ð‘“ð‘š) (wide, \n~200 kHz) \nNoise Immunity Poor (noise affects \namplitude directly) \nExcellent (limiter \nremoves amplitude \nnoise) \nPower Efficiency Low (carrier power \nwasted) \nHigh (constant envelope \nenables efficient PAs) \nFidelity Low (audio BW â‰¤ 5 kHz) High (audio BW up to \n15 kHz) \nPropagation \nLong-range \n(ground/skywave in \nMF/HF) \nShort-range (line-of-\nsight in VHF/UHF) \nCircuit Complexity Simple (envelope \ndetector) \nComplex (limiter, \ndiscriminator, AFC) \nTypical Uses AM radio, aviation \ncommunication",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  11
+    },
+    {
+        "question":  "In phase modulation, what effect does a positive modulating signal have on the carrier\u0027s phase?",
+        "ground_truth":  "It causes a phase advance.",
+        "context":  "Circuit Complexity Simple (envelope \ndetector) \nComplex (limiter, \ndiscriminator, AFC) \nTypical Uses AM radio, aviation \ncommunication \nFM radio, TV audio, \nmobile communication \n \n5.4  Phase Modulation (PM)         \nPhase Modulation (PM) is a modulation technique in which the phase of the \ncarrier signal is varied in accordance with the instantaneous value of the \nmodulating signal, while the amplitude and frequency of the carrier remain \nconstant. In PM, information is conveyed through variations in the phase angle \nof the carrier wave. \nThe basic principle of phase modulation is that when a modulating signal is \napplied, the phase of the carrier signal changes instantaneously according to the \namplitude of the modulating signal. A positive modulating signal causes a phase \nadvance, while a negative modulating signal causes a phase delay relative to the \nunmodulated carrier.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  11
+    },
+    {
+        "question":  "What does the modulation index of PM depend on?",
+        "ground_truth":  "Only on message amplitude.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.13  \n \n5.4.1 Phase Deviation in PM \nPhase deviation (Î”ðœ™) is the maximum change in the carrier phase caused by the \nmessage signal. \nâ€¢ Higher message amplitude â†’ larger phase deviation \nâ€¢ Lower message amplitude â†’ smaller phase deviation \nThis phase variation carries the information. \n5.4.2 Modulation Index in PM \nThe modulation index of PM is equal to the maximum phase deviation. \nÎ²p = â¡Î”ðœ™ = ð‘˜ð‘â¡ð´ð‘š \nwhere (Am) is the peak amplitude of the message signal. \nImportant Observations  \nâ€¢ In PM, modulation index depends only on message amplitude \nâ€¢ In FM, modulation index depends on frequency deviation  and message \nfrequency. \nâ€¢ PM modulation index is independent of message frequency.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  12
+    },
+    {
+        "question":  "According to the passage, how is phase related to frequency in angle modulation?",
+        "ground_truth":  "Phase is the integral of frequency, and frequency is the derivative of phase with respect to time.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.14  \n5.4.3 Relationship Between FM and PM \nPhase modulation and frequency modulation are closely related, as both fall \nunder the category of angle modulation. In fact, phase modulation can be \nconsidered as a special case of frequency modulation, and vice versa. The key \nrelationship is that phase is  the integral of frequency, and frequency is the \nderivative of phase with respect to time. \nWhen a signal is phase modulated, the instantaneous frequency also varies, \nmaking it appear similar to FM. Similarly, when a signal is frequency modulated, \nthe phase also changes. The fundamental difference is: \nâ€¢ In FM, the instantaneous frequency deviation is directly proportional to \nthe amplitude of the modulating signal. \nâ€¢ In PM, the phase deviation is directly proportional to the amplitude of the \nmodulating signal, which means the instantaneous frequency deviation is \nproportional to the derivative of the modulating signal.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  13
+    },
+    {
+        "question":  "What is the advantage of Phase Modulation (PM) mentioned in the passage?",
+        "ground_truth":  "Good Noise Immunity",
+        "context":  "modulating signal, which means the instantaneous frequency deviation is \nproportional to the derivative of the modulating signal. \nThis relationship can be expressed mathematically: FM can be generated from \nPM by first integrating the modulating signal before applying it to a phase \nmodulator. Conversely, PM can be generated from FM by first differentiating the \nmodulating signal before applying it to a frequency modulator. \nPM and FM are mathematically related angle modulation techniques. \nâ€¢ PM to FM: Integrate the message signal before phase modulation \nâ€¢ FM to PM: Differentiate the message signal before frequency modulation \nâ€¢ In FM: Frequency deviation âˆ message amplitude \nâ€¢ In PM: Frequency deviation âˆ derivative of message signal \n5.4.4 Advantages of Phase Modulation (PM) \nâ€¢ Good Noise Immunity:  PM provides excellent noise immunity because \nnoise primarily affects amplitude, while information is carried in the phase \nof the signal.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  13
+    },
+    {
+        "question":  "What aspect of the signal does noise primarily affect according to the passage?",
+        "ground_truth":  "Amplitude",
+        "context":  "noise primarily affects amplitude, while information is carried in the phase \nof the signal. \nâ€¢ Constant Amplitude Signal:  Like FM, PM maintains constant carrier \namplitude allowing the use of efficient power amplifiers. \nâ€¢ Better Frequency Stability:  PM systems can achieve better frequency \nstability than direct FM because the carrier frequency is generated by a \nstable crystal oscillator and only the phase is modulated. \nâ€¢ Foundation for Digital Modulation:  PM is particularly well -suited for \ndigital communication systems. Digital phase modulation techniques like",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  13
+    },
+    {
+        "question":  "Which digital communication systems use phase modulation?",
+        "ground_truth":  "PSK and QPSK",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.15  \nBPSK, QPSK, and QAM are highly efficient and form the basis of modern \ndigital communication systems. \n5.4.5 Disadvantages of Phase Modulation (PM) \nâ€¢ Complex Receiver Design:  PM demodulation is more complex than AM \ndemodulation. It requires sophisticated circuits or digital signal \nprocessing, particularly for coherent detection of digital PM schemes.  \nâ€¢ Requires Differentiation/Integration: Depending on the system design, \nadditional signal processing (differentiation or integration) may be required \nto properly recover the modulating signal from PM. \nâ€¢ Limited Use in Analog Broadcasting:  PM is less common than FM for \nanalog audio transmission. \nâ€¢ Higher Bandwidth Requirement:  Like FM, PM typically requires wider \nbandwidth than AM, especially for wideband PM applications. \n5.4.6 Applications of Phase Modulation (PM) \nâ€¢ Digital Communication Systems (PSK, QPSK)",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  14
+    },
+    {
+        "question":  "Which modulation technique has a modulation index with no upper limit?",
+        "ground_truth":  "PM",
+        "context":  "5.4.6 Applications of Phase Modulation (PM) \nâ€¢ Digital Communication Systems (PSK, QPSK) \nâ€¢ Satellite Communication due to better noise performance \nâ€¢ Telemetry and Data Transmission \nâ€¢ Phase-Locked Loops (PLL) and synchronization systems \nâ€¢ Indirect FM Generation \n \n5.4.7 Comparison: AM vs FM vs PM \nParameter AM FM PM \nVaried \nParameter \nAmplitude of carrier \nsignal \nFrequency of \ncarrier signal \nPhase of carrier \nsignal \nCarrier \nAmplitude Varies Constant Constant \nMath Form ð´ð‘[1\n+ ðœ‡ð‘š(ð‘¡)]cosâ¡(2ðœ‹ð‘“ð‘ð‘¡) \nð´ð‘cosâ¡[2ðœ‹ð‘“ð‘ð‘¡\n+ 2ðœ‹ð‘˜ð‘“âˆ« ð‘šð‘‘ð‘¡] \nð´ð‘cosâ¡[2ðœ‹ð‘“ð‘ð‘¡\n+ ð‘˜ð‘ð‘š(ð‘¡)] \nModulation \nIndex \nðœ‡ = ð´ð‘š\nð´ð‘\n \n0 â‰¤ ðœ‡ â‰¤ 1 \nð›½ð‘“ = Î”ð‘“\nð‘“ð‘š\n \nð›½ð‘“ â‰« 1 possible \nð›½ð‘ = ð‘˜ð‘ð´ð‘š \n(radians, no upper \nlimit) \nFreq. Deviation Not applicable Î”ð‘“ = ð‘˜ð‘“ð´ð‘š Î”ð‘“ = ð›½ð‘ð‘“ð‘š = ð‘˜ð‘ð‘“ð‘šð´ð‘š \nBandwidth 2ð‘“ð‘š (narrow, ~10 \nkHz) \n2(Î”ð‘“ + ð‘“ð‘š) (wide, \n~200 kHz) \n2(Î”ð‘“ + ð‘“ð‘š) (similar \nto FM)",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  14
+    },
+    {
+        "question":  "Which modulation scheme has the highest noise immunity?",
+        "ground_truth":  "FM",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.16  \nParameter AM FM PM \nNoise Immunity Poor Excellent Very Good (needs \ncoherent detection) \nPower \nEfficiency Low High High \nCircuit \nComplexity Simple Moderate-Complex Complex \nDemodulation Envelope detector Discriminator, PLL Coherent detection \nDigital \nEquivalent ASK FSK PSK \nTypical \nApplications AM radio, aviation FM radio, TV audio Digital comm, \nsatellite \n \n5.5  Introduction to Multiplexing         \nIn a telecommunication system, several users need to transmit information \nsimultaneously over a common communication medium â€” such as a coaxial \ncable, optical fiber, microwave link, or wireless channel. Providing a separate \nphysical channel for each user would be both costly and impractical. \nMultiplexing is the technique that solves this problem by allowing multiple \nindependent signals to share a single transmission medium efficiently. \n5.5.1 Definition",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  15
+    },
+    {
+        "question":  "What is multiplexing?",
+        "ground_truth":  "Multiplexing is a technique by which multiple independent signals are combined into one composite signal, transmitted over a shared communication channel, and then separated back into the original individual signals at the receiving end.",
+        "context":  "independent signals to share a single transmission medium efficiently. \n5.5.1 Definition \nMultiplexing is a technique by which multiple independent signals are combined \ninto one composite signal, transmitted over a shared communication channel, \nand then separated back into the original individual signals at the receiving end. \n5.5.2 Need for Multiplexing \nMultiplexing is essential in modern communication for the following reasons: \nâ€¢ Efficient Bandwidth Utilisation: Most communication media possess a \nmuch higher bandwidth than a single user requires. Multiplexing allows \nthis excess bandwidth to be shared among several users, ensuring no \ncapacity is wasted. \nâ€¢ Cost Reduction:  Installing separate cables or links for every user is \nexpensive. A single multiplexed channel can serve many users, drastically \nreducing infrastructure and maintenance costs. \nâ€¢ Increased System Capacity:  Multiplexing makes it possible to serve a",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  15
+    },
+    {
+        "question":  "What does multiplexing enable regarding users and physical links?",
+        "ground_truth":  "It allows serving a large number of users over a limited number of physical links, increasing overall network capacity.",
+        "context":  "reducing infrastructure and maintenance costs. \nâ€¢ Increased System Capacity:  Multiplexing makes it possible to serve a \nlarge number of users over a limited number of physical links, increasing \nthe overall capacity of the communication network.",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  15
+    },
+    {
+        "question":  "What does a demultiplexer do in a communication system?",
+        "ground_truth":  "It receives the composite multiplexed signal from the transmission channel and separates it back into the original individual signals, directing each to its appropriate destination.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.17  \nâ€¢ Scalability: Large networks â€” telephone systems, internet backbones, \nand satellite systems â€” depend on multiplexing to handle growing \nnumbers of users without building entirely new infrastructure. \n5.5.3 Key Terminologies \nâ€¢ Multiplexer (MUX): A multiplexer is a device that accepts multiple input \nsignals from different sources and combines them into a single composite \noutput signal for transmission over a shared communication channel. The \nmultiplexer ensures that each input signal maintains its identity within \nthe combined signal so it can be recovered at the destination. \nâ€¢ Demultiplexer (DEMUX): A demultiplexer performs the opposite function \n- it receives the composite multiplexed signal from the transmission \nchannel and separates it back into the original individual signals, directing \neach to its appropriate destination. The demultiplexer must b e",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  16
+    },
+    {
+        "question":  "What are the two fundamental types of multiplexing?",
+        "ground_truth":  "Frequency Division Multiplexing (FDM) and Time Division Multiplexing (TDM).",
+        "context":  "channel and separates it back into the original individual signals, directing \neach to its appropriate destination. The demultiplexer must b e \nsynchronized with the multiplexer to correctly identify and extract each \nindividual signal. \nâ€¢ Channel Capacity:  Channel capacity is the maximum rate at which \ninformation can be reliably transmitted over a communication channel. It \ndepends on the available bandwidth and the signal -to-noise ratio. \nMultiplexing is designed to utilise this capacity optimally by ensuring  the \nchannel carries multiple signals rather than lying partially idle. \n5.5.4 Types of Multiplexing \nBased on the manner in which the channel is shared, multiplexing is classified \ninto two fundamental types: \nâ€¢ Frequency Division Multiplexing (FDM):  The available bandwidth is \ndivided into separate frequency bands; all signals are transmitted \nsimultaneously, each occupying a different frequency band. \nâ€¢ Time Division Multiplexing (TDM):  The entire channel bandwidth is",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  16
+    },
+    {
+        "question":  "Which multiplexing techniques are described as foundational methods in the passage?",
+        "ground_truth":  "Frequency Division Multiplexing (FDM) and Time Division Multiplexing (TDM)",
+        "context":  "simultaneously, each occupying a different frequency band. \nâ€¢ Time Division Multiplexing (TDM):  The entire channel bandwidth is \nshared in time; each signal is transmitted sequentially in its own dedicated \ntime slot. \nOther techniques such as Wavelength Division Multiplexing (WDM) â€” used in \noptical fiber â€” and Code Division Multiplexing (CDM) â€” used in cellular \nnetworks â€” also exist, but FDM and TDM are the foundational methods. \n5.6  Frequency Division Multiplexing (FDM)      \n5.6.1 Definition",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  16
+    },
+    {
+        "question":  "What are the two stages of the FDM process?",
+        "ground_truth":  "Multiplexing at the transmitter and demultiplexing at the receiver.",
+        "context":  "FTS notes by Dr. A. B. Patil (TSEC, Bandra, Mumbai) Page | 5.18  \nFrequency Division Multiplexing (FDM) is an analog multiplexing technique in \nwhich the total available bandwidth of a communication channel is divided into \nseveral non-overlapping frequency sub-bands. Each input signal is assigned one \nsub-band and all sign als are transmitted simultaneously, each occupying a \ndifferent frequency range. Separation of signals is therefore achieved in the \nfrequency domain. \n5.6.2 Working Principle \nThe FDM process takes place in two stages â€” multiplexing at the transmitter \nand demultiplexing at the receiver. \nTransmitter (Multiplexing) \nEach input signal â€” which exists at baseband frequency â€” is fed into a separate \nmodulator. Each modulator uses a different sub -carrier frequency (f â‚, fâ‚‚, fâ‚ƒ, â€¦) \nso that the resulting modulated signals occupy distinct, non -overlapping \nfrequency bands. The modulated signals are then passed through individual",
+        "source":  "FTS Notes Module 5 ABP(Revised).pdf",
+        "page":  17
+    }
+]
